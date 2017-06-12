@@ -21,12 +21,12 @@
           stroke-width: .02;
       }
 
-      .token {
+      .can {
           stroke: black;
           stroke-width: 0.01;
       }
 
-      #token-ordinary {
+      #can-ordinary {
           fill: silver;
       }
 
@@ -68,8 +68,8 @@
   <defs>
     <rect width="0.11" height="0.11"
           x="-0.055" y="-0.055"
-          id="token-ordinary"
-          class="token"/>
+          id="can-ordinary"
+          class="can"/>
     <rect width="0.35" height="0.5"
           x="-0.175" y="-0.25"
           id="robot"/>
@@ -91,9 +91,9 @@
             y1="0"
             x2="4"
             y2="1.2"/>
-      <!-- starting tokens -->
-      <use xlink:href="#token-ordinary" transform="translate(4.5 0.6)"/>
-      <use xlink:href="#token-ordinary" transform="translate(0.6 2.5)"/>
+      <!-- starting cans -->
+      <use xlink:href="#can-ordinary" transform="translate(4.5 0.6)"/>
+      <use xlink:href="#can-ordinary" transform="translate(0.6 2.5)"/>
       <!-- wall markers -->
       <use xlink:href="#wall-marker"
            x="1"/>
