@@ -15,12 +15,6 @@
           stroke-width: .02;
       }
 
-      .platform {
-          fill: #bbb;
-          stroke: #555;
-          stroke-width: .02;
-      }
-
       .token {
           stroke: black;
           stroke-width: 0.01;
@@ -30,8 +24,12 @@
           fill: #92e;
       }
 
-      #token-ordinary {
+      #token-silver {
           fill: silver;
+      }
+
+      #token-gold {
+          fill: gold;
       }
 
       #robot {
@@ -52,6 +50,12 @@
           fill: #00a5ff;
       }
 
+      .shelf {
+          stroke: #333;
+          stroke-width: 0.02;
+          fill: #ddd;
+      }
+
       #marker-annotations text {
           font-size: 0.2px;
           text-anchor: middle;
@@ -64,13 +68,17 @@
   </style>
   <!-- common patterns -->
   <defs>
-    <rect width="0.11" height="0.11"
-          x="-0.055" y="-0.055"
+    <rect width="0.25" height="0.25"
+          x="-0.125" y="-0.125"
           id="token-poison"
           class="token"/>
     <rect width="0.11" height="0.11"
           x="-0.055" y="-0.055"
-          id="token-ordinary"
+          id="token-silver"
+          class="token"/>
+    <rect width="0.11" height="0.11"
+          x="-0.055" y="-0.055"
+          id="token-gold"
           class="token"/>
     <rect width="0.35" height="0.5"
           x="-0.175" y="-0.25"
@@ -83,13 +91,26 @@
         <use xlink:href="#robot"/>
       </g>
       <!-- boundary -->
-      <path class="zone-boundary"
-            d="M 0 1 h 1 v -1"/>
-      <!-- starting tokens -->
-      <use xlink:href="#token-ordinary" transform="translate(0.25 1.25)"/>
-      <use xlink:href="#token-ordinary" transform="translate(0.25 1.5)"/>
-      <use xlink:href="#token-ordinary" transform="translate(0.25 1.75)"/>
-      <use xlink:href="#token-ordinary" transform="translate(0.25 2)"/>
+      <line class="zone-boundary"
+            x1="0"
+            y1="3.0"
+            x2="3.0"
+            y2="0"/>
+      <rect class="zone-boundary"
+            x="0" y="0"
+            width="1" height="1"/>
+      <!-- shelf -->
+      <rect width="1"
+            height="0.5"
+            x="3.5"
+            y="0"
+            class="shelf"/>
+      <!-- gold tokens -->
+      <use xlink:href="#token-gold" transform="translate(3.7 0.3)"/>
+      <use xlink:href="#token-gold" transform="translate(4.3 0.3)"/>
+      <!-- silver tokens -->
+      <use xlink:href="#token-silver" transform="translate(2 3)"/>
+      <use xlink:href="#token-silver" transform="translate(3 2)"/>
       <!-- wall markers -->
       <use xlink:href="#wall-marker"
            x="1"/>
@@ -117,19 +138,6 @@
     <use xlink:href="#side-zone" transform="rotate(90 4 4)"/>
     <use xlink:href="#side-zone" transform="rotate(180 4 4)"/>
     <use xlink:href="#side-zone" transform="rotate(270 4 4)"/>
-    <!-- scoring zones -->
-    <g class="zone-boundary">
-      <!-- outer path -->
-      <path d="M 4 2 L 2 4 L 4 6 L 6 4 z"/>
-      <!-- inner path -->
-      <path d="M 4 2 v 4"/>
-      <path d="M 2 4 h 4"/>
-    </g>
-    <!-- central platform -->
-    <rect width="0.5"
-          height="0.5"
-          x="3.75" y="3.75"
-          class="platform"/>
     <!-- poison token -->
     <use xlink:href="#token-poison" transform="translate(4 4)"/>
     <!-- arena wall -->
