@@ -31,7 +31,7 @@
       }
 
       #token-gold {
-          fill: silver;
+          fill: gold;
       }
 
       #token-poison {
@@ -68,6 +68,12 @@
           fill: #222;
       }
 
+      .pedestal {
+          stroke: #333;
+          stroke-width: 0.02;
+          fill: #ddd;
+      }
+
       text { font-size: 0.2px ; }
 
     ]]>
@@ -76,7 +82,15 @@
   <defs>
     <rect width="0.11" height="0.11"
           x="-0.055" y="-0.055"
-          id="token-ordinary"
+          id="token-silver"
+          class="token"/>
+    <rect width="0.11" height="0.11"
+          x="-0.055" y="-0.055"
+          id="token-gold"
+          class="token"/>
+    <rect width="0.25" height="0.25"
+          x="-0.125" y="-0.125"
+          id="token-poison"
           class="token"/>
     <rect width="0.35" height="0.5"
           x="-0.175" y="-0.25"
@@ -85,7 +99,7 @@
       <rect x="-0.125" y="0" width="0.25" height="0.04" class="marker"/>
     </g>
     <g id="side-zone">
-      <g transform="translate(0.5 0.5) rotate(90)">
+      <g transform="translate(0.5 1.5) rotate(90)">
         <use xlink:href="#robot"/>
       </g>
       <!-- home zone boundary -->
@@ -94,9 +108,6 @@
             y1="0"
             x2="1.5"
             y2="3"/>
-      <!-- starting tokens -->
-      <use xlink:href="#token-ordinary" transform="translate(4.5 0.6)"/>
-      <use xlink:href="#token-ordinary" transform="translate(0.6 2.5)"/>
       <!-- wall markers -->
       <use xlink:href="#wall-marker"
            x="1"/>
@@ -119,12 +130,30 @@
            x="2"
            transform="rotate(90, 0, 0) scale(1, -1)"/>
     </g>
+    <clipPath id="clip-shelf">
+      <rect x="0" y="-1.5" width="4" height="4"/>
+    </clipPath>
+    <g id="token-shelf" clip-path="url(#clip-shelf)">
+      <rect width="1"
+            height="0.5"
+            x="-0.5"
+            y="1"
+            class="pedestal"/>
+      <use xlink:href="#token-silver" transform="translate(0.55 0.65)" />
+      <use xlink:href="#token-gold" transform="translate(0.35 1.15)" />
+      <use xlink:href="#token-poison" />
+    </g>
   </defs>
   <!-- white background -->
   <rect width="100%" height="100%" fill="white"/>
   <!-- transform for arena-space coordinates -->
   <g id="arena"
      transform="translate(100 100) scale(100)">
+    <!-- scoring goo -->
+    <use xlink:href="#token-shelf" transform="translate(4 1.5)"/>
+    <use xlink:href="#token-shelf" transform="translate(4 1.5) scale(-1 1)"/>
+    <use xlink:href="#token-shelf" transform="translate(4 1.5) scale(-1 -1)"/>
+    <use xlink:href="#token-shelf" transform="translate(4 1.5) scale(1 -1)"/>
     <!-- zones -->
     <use xlink:href="#side-zone"/>
     <use xlink:href="#side-zone" transform="rotate(180 4 1.5)"/>
