@@ -5,15 +5,20 @@
   \item The game, called \emph{\gamename}, is played in the arena defined in
         Specification~\ref{spec:arena}. The objective is to collect tokens, and
         to bring them to one's scoring zone.
-  \item The arena contains sixteen tokens. The layout is detailed in
-        Specification~\ref{spec:arena}. Each token is worth 2 points.
-  \item In the centre of the arena, on a raised platform, is a special poison
-        token, which has the effect of nullifying the scores in a zone.
+  \item The arena contains nine tokens. The layout is detailed in
+        Specification~\ref{spec:arena}. Then tokens are worth differing amounts
+        of points.
+        \begin{enumerate}
+          \item \emph{Gold} tokens are worth 3 points,
+          \item \emph{Silver} tokens are worth 1 point,
+        \end{enumerate}
+  \item In the centre of the arena is a special poison token, which has the
+        effect of nullifying the scores in a zone.
   \item At the end of the game, each robot is awarded the sum of the value of
         all tokens entirely within their scoring zone, unless that scoring zone
         contains the poison token. If the zone contains the poison token, no
         points are awarded.
-  \item An additional two bonus points are awarded for any movement from the
+  \item An additional bonus point is awarded for any movement from the
         start position of a robot.\footnote{This can be awarded regardless of
         the presence of a poison token.}
   \item A token is in a scoring zone if, and only if, all the following
